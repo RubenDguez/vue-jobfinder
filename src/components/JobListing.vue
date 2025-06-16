@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps, ref, computed } from 'vue'
+import { RouterLink } from 'vue-router'
 import Card from './Card.vue'
 
 const props = defineProps({
@@ -9,7 +10,7 @@ const props = defineProps({
 const showFullDescription = ref(false)
 
 const handleTruncatedText = () => {
-  showFullDescription.value = !showFullDescription.value;
+  showFullDescription.value = !showFullDescription.value
 }
 
 const truncatedDescription = computed(() => {
@@ -31,7 +32,9 @@ const truncatedDescription = computed(() => {
     <p>
       {{ truncatedDescription }}
       <span class="text-green-500">
-        <button @click="handleTruncatedText()" style="cursor: pointer;">{{ `${showFullDescription ? 'Less' : 'More'}` }}</button>
+        <button @click="handleTruncatedText()" style="cursor: pointer">
+          {{ `${showFullDescription ? 'Less' : 'More'}` }}
+        </button>
       </span>
     </p>
 
@@ -41,6 +44,6 @@ const truncatedDescription = computed(() => {
       <i class="pi pi-map-marker" />
       <p>{{ job.location }}</p>
     </div>
-    <a href="#" class="text-center py-2 px-6 bg-green-600 text-white rounded-2xl">Learn More</a>
+    <RouterLink :to="`/job/${job.id}`" class="text-center py-2 px-6 bg-green-600 text-white rounded-2xl">Learn More</RouterLink>
   </Card>
 </template>
