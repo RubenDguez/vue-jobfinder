@@ -1,7 +1,8 @@
 <script setup>
 import JobListing from '@/components/JobListing.vue'
-import { defineProps } from 'vue'
 import jobs from '@/data/jobs.json'
+import { defineProps } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const props = defineProps({
   showAllJobs: {
@@ -19,7 +20,7 @@ const props = defineProps({
       <JobListing v-for="job in jobs.slice(0, limit || jobs.length)" :job="job" :key="job.id" />
     </div>
     <div v-if="showAllJobs" class="w-auto flex justify-center">
-      <a href="#" class="bg-black text-white py-2 px-6 rounded-2xl">Show all jobs</a>
+      <RouterLink to="/jobs" class="bg-black text-white py-2 px-6 rounded-2xl">Show all jobs</RouterLink>
     </div>
   </section>
 </template>
