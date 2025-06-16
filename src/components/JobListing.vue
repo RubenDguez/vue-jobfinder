@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from 'vue'
+import Card from './Card.vue';
 
 const props = defineProps({
   job: Object,
@@ -7,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="shadow-md py-3 px-6 rounded-2xl w-auto flex flex-col gap-2">
+  <Card>
     <p>{{ job.type }}</p>
     <h3 class="text-2xl">{{ job.title }}</h3>
     <p>{{ job.description }}</p>
@@ -16,5 +17,5 @@ const props = defineProps({
 
     <p class="text-amber-600 text-sm">{{ job.location }}</p>
     <a href="#" class="text-center py-2 px-6 bg-green-600 text-white rounded-2xl">Learn More</a>
-  </div>
+  </Card>
 </template>
