@@ -1,0 +1,86 @@
+[
+    {
+        "id": "b1e7c8a2-4f2a-4e7b-9e0d-1a2b3c4d5e6f",
+        "type": "Full-Time",
+        "title": "Senior Vue Developer",
+        "description": "We are looking for an experienced Vue.js developer to join our team. You will be responsible for building user interfaces and maintaining our web applications.",
+        "salary": "$80,000 - $120,000",
+        "location": "Remote",
+        "company": {
+            "name": "Tech Solutions Inc.",
+            "logo": "https://via.placeholder.com/150",
+            "website": "https://techsolutions.com",
+            "description": "Tech Solutions Inc. is a leading provider of innovative software solutions. We are committed to delivering high-quality products and services to our clients worldwide."
+        }
+    },
+    {
+        "id": "c2f4d9b3-5e1a-4c8b-8f0e-2b3c4d5e6f7a",
+        "type": "Full-Time",
+        "title": "Frontend Engineer (Vue.js)",
+        "description": "Join our dynamic frontend team to develop scalable web applications using Vue.js and modern JavaScript frameworks.",
+        "salary": "$75,000 - $110,000",
+        "location": "San Francisco, CA",
+        "company": {
+            "name": "Web Innovators",
+            "logo": "https://via.placeholder.com/150",
+            "website": "https://webinnovators.com",
+            "description": "Web Innovators specializes in building next-generation web platforms for startups and enterprises."
+        }
+    },
+    {
+        "id": "d3a5e6c4-6f2b-4d8c-9e1f-3c4d5e6f7a8b",
+        "type": "Full-Time",
+        "title": "Vue.js UI/UX Developer",
+        "description": "Seeking a UI/UX developer with strong Vue.js skills to create engaging and user-friendly interfaces for our SaaS products.",
+        "salary": "$70,000 - $105,000",
+        "location": "Austin, TX",
+        "company": {
+            "name": "CloudApps",
+            "logo": "https://via.placeholder.com/150",
+            "website": "https://cloudapps.com",
+            "description": "CloudApps delivers cloud-based solutions to streamline business operations and enhance productivity."
+        }
+    },
+    {
+        "id": "e4b6f7d5-7a3c-4e9d-0f2a-4d5e6f7a8b9c",
+        "type": "Full-Time",
+        "title": "Vue.js Software Engineer",
+        "description": "Work with a talented engineering team to design and implement new features in our Vue.js-based web application.",
+        "salary": "$85,000 - $125,000",
+        "location": "Remote",
+        "company": {
+            "name": "NextGen Tech",
+            "logo": "https://via.placeholder.com/150",
+            "website": "https://nextgentech.com",
+            "description": "NextGen Tech is a fast-growing startup focused on delivering innovative digital solutions."
+        }
+    },
+    {
+        "id": "f5c7a8e6-8b4d-4f0e-1a2b-5e6f7a8b9c0d",
+        "type": "Full-Time",
+        "title": "Lead Vue.js Developer",
+        "description": "Lead a team of developers in building robust Vue.js applications for our enterprise clients.",
+        "salary": "$95,000 - $135,000",
+        "location": "New York, NY",
+        "company": {
+            "name": "Enterprise WebWorks",
+            "logo": "https://via.placeholder.com/150",
+            "website": "https://enterprisewebworks.com",
+            "description": "Enterprise WebWorks partners with Fortune 500 companies to deliver high-quality web solutions."
+        }
+    },
+    {
+        "id": "a6d8e9f7-9c5e-4a1b-2c3d-6f7a8b9c0d1e",
+        "type": "Full-Time",
+        "title": "Vue.js Application Architect",
+        "description": "Architect and oversee the development of scalable Vue.js applications, ensuring best practices and code quality.",
+        "salary": "$110,000 - $150,000",
+        "location": "Seattle, WA",
+        "company": {
+            "name": "Digital Architects",
+            "logo": "https://via.placeholder.com/150",
+            "website": "https://digitalarchitects.com",
+            "description": "Digital Architects is a leader in digital transformation, helping clients modernize their technology stacks."
+        }
+    }
+]
