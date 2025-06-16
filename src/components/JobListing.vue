@@ -16,6 +16,8 @@ const handleTruncatedText = () => {
 const truncatedDescription = computed(() => {
   let description = props.job.description
 
+  if (description.length < 90) return description
+
   if (!showFullDescription.value) {
     return description.substring(0, 90) + '...'
   }
@@ -44,6 +46,10 @@ const truncatedDescription = computed(() => {
       <i class="pi pi-map-marker" />
       <p>{{ job.location }}</p>
     </div>
-    <RouterLink :to="`/job/${job.id}`" class="text-center py-2 px-6 bg-green-600 text-white rounded-2xl">Learn More</RouterLink>
+    <RouterLink
+      :to="`/job/${job.id}`"
+      class="text-center py-2 px-6 bg-green-600 text-white rounded-2xl"
+      >Learn More</RouterLink
+    >
   </Card>
 </template>
