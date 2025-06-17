@@ -3,6 +3,7 @@ import Home from '@/views/Home.vue'
 import Jobs from '@/views/Jobs.vue'
 import AddJob from '@/views/AddJob.vue'
 import NotFound from '@/Pages/NotFound.vue'
+import Job from '@/views/Job.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,9 +19,9 @@ const router = createRouter({
       component: Jobs,
     },
     {
-      path: '/jobs/:id',
-      name: 'jobs',
-      component: Jobs,
+      path: '/job/:id',
+      name: 'jobsById',
+      component: Job,
     },
     {
       path: '/add-job',
