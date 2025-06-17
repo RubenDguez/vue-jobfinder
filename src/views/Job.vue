@@ -51,7 +51,7 @@ onMounted(async () => {
         <hr class="my-2" style="color: lightgray" />
 
         <RouterLink
-          :to="`/job/edit/${route.params.id}`"
+          :to="`/job/update/${route.params.id}`"
           class="bg-amber-400 rounded-2xl py-1 text-center text-white shadow"
           >Edit</RouterLink
         >

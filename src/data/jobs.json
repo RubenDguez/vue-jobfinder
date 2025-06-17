@@ -1,18 +1,18 @@
 {
   "jobs": [
     {
-      "id": "b1e7c8a2-4f2a-4e7b-9e0d-1a2b3c4d5e6f",
       "type": "Full-Time",
       "title": "Senior Vue Developer",
       "description": "We are looking for an experienced Vue.js developer to join our team. You will be responsible for building user interfaces and maintaining our web applications.",
       "salary": "$80,000 - $120,000",
-      "location": "Remote",
+      "location": "Juno Beach, FL",
       "company": {
         "name": "Tech Solutions Inc.",
         "logo": "https://via.placeholder.com/150",
         "website": "https://techsolutions.com",
         "description": "Tech Solutions Inc. is a leading provider of innovative software solutions. We are committed to delivering high-quality products and services to our clients worldwide."
-      }
+      },
+      "id": "b1e7c8a2-4f2a-4e7b-9e0d-1a2b3c4d5e6f"
     },
     {
       "id": "c2f4d9b3-5e1a-4c8b-8f0e-2b3c4d5e6f7a",
@@ -85,18 +85,32 @@
       }
     },
     {
-      "id": "2686",
-      "type": "fulltime",
+      "type": "Full-Time",
       "title": "Full Stack Vue + Java",
       "description": "test description",
       "salary": "85,000 - 100,000",
-      "location": "Orlando, FL",
+      "location": "Clermont, FL",
       "company": {
         "name": "RubenDguez Co.",
         "logo": "",
         "website": "https://www.rubendguez.com",
         "description": "company description"
-      }
+      },
+      "id": "2686"
+    },
+    {
+      "type": "Remote",
+      "title": "Vue Developer Front-End",
+      "description": "TEST",
+      "salary": "$85,000 - $105,000",
+      "location": "Juno Beach, FL",
+      "company": {
+        "name": "NextEra Energy",
+        "logo": "",
+        "website": "https://www.google.com",
+        "description": "Company Description Test"
+      },
+      "id": "acc5"
     }
   ]
 }

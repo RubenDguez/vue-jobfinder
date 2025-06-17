@@ -3,5 +3,5 @@ import AddJobForm from '@/components/JobForm.vue'
 </script>
 
 <template>
-  <AddJobForm />
+  <AddJobForm :isUpdate="true" />
 </template>

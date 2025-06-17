@@ -1,6 +1,17 @@
 <script setup>
 import axios from 'axios'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
+
+const props = defineProps({
+  isUpdate: {
+    type: Boolean,
+    default: false,
+  },
+})
 
 const type = ref('')
 const title = ref('')
@@ -12,8 +23,8 @@ const companyLogo = ref('')
 const companyWebsite = ref('')
 const companyDescription = ref('')
 
-const handleSubmit = async () => {
-  const data = {
+const getData = () => {
+  return {
     type: type.value,
     title: title.value,
     description: description.value,
@@ -26,13 +37,49 @@ const handleSubmit = async () => {
       description: companyDescription.value,
     },
   }
+}
 
+const handleCreate = async () => {
   try {
-    await axios.post('http://localhost:3001/jobs', data)
+    await axios.post('http://localhost:3001/jobs', getData())
+    router.push('/jobs');
   } catch (error) {
     console.error('Error submitting job:', error)
   }
 }
+
+const handleUpdate = async () => {
+  try {
+    await axios.put(`http://localhost:3001/jobs/${route.params.id}`, getData())
+    router.push(`/job/${route.params.id}`);
+  } catch (error) {
+    console.error('Error submitting job:', error)
+  }
+}
+
+const handleSubmit = async () => {
+  if (!props.isUpdate) return handleCreate()
+  return handleUpdate()
+}
+
+onMounted(async () => {
+  if (props.isUpdate) {
+    try {
+      const response = await axios.get(`http://localhost:3001/jobs/${route.params.id}`)
+      type.value = response.data.type
+      title.value = response.data.title
+      description.value = response.data.description
+      salary.value = response.data.salary
+      location.value = response.data.location
+      companyName.value = response.data.company.name
+      companyLogo.value = response.data.company.logo
+      companyWebsite.value = response.data.company.website
+      companyDescription.value = response.data.company.description
+    } catch (error) {
+      console.error('Error fetching job data:', error)
+    }
+  }
+})
 </script>
 
 <template>
@@ -48,13 +95,17 @@ const handleSubmit = async () => {
           <label for="type" class="text-green-500 text-xs">* Type</label>
           <select
             v-model="type"
+            :value="type"
             required
             name="type"
             id="type"
             class="border border-green-400 rounded px-4 py-1 bg-gray-50 text-green-500"
           >
             <option value="">select one</option>
-            <option value="fulltime">Full Time</option>
+            <option value="Full-Time">Full Time</option>
+            <option value="Part-Time">Part Time</option>
+            <option value="Contract-To-Hire">Contract To Hire</option>
+            <option value="Remote">Remote</option>
           </select>
         </div>
         <div class="flex flex-col gap-1">
@@ -62,6 +113,7 @@ const handleSubmit = async () => {
           <input
             v-model="title"
             required
+            :disabled="props.isUpdate"
             type="text"
             name="title"
             id="title"
@@ -116,6 +168,7 @@ const handleSubmit = async () => {
           <input
             v-model="companyName"
             required
+            :disabled="props.isUpdate"
             type="text"
             name="companyName"
             id="companyName"
@@ -125,6 +178,7 @@ const handleSubmit = async () => {
         <div class="flex flex-col gap-1">
           <label for="companyLogo" class="text-green-500 text-xs">Logo URL</label>
           <input
+            :disabled="props.isUpdate"
             v-model="companyLogo"
             type="text"
             name="companyLogo"
@@ -136,6 +190,7 @@ const handleSubmit = async () => {
           <label for="companyWebsite" class="text-green-500 text-xs">* Website</label>
           <input
             v-model="companyWebsite"
+            :disabled="props.isUpdate"
             required
             type="text"
             name="companyWebsite"
@@ -150,6 +205,7 @@ const handleSubmit = async () => {
           <textarea
             v-model="companyDescription"
             required
+            :disabled="props.isUpdate"
             rows="5"
             name="companyDescription"
             id="companyDescription"
@@ -162,10 +218,10 @@ const handleSubmit = async () => {
 
       <button
         type="submit"
-        class="text-white py-2 px-6 bg-green-800 rounded-2xl"
+        :class="`text-white py-2 px-6 ${props.isUpdate ? 'bg-amber-500' : 'bg-green-800'} rounded-2xl`"
         style="cursor: pointer"
       >
-        Submit
+        {{ props.isUpdate ? 'Update' : 'Submit' }}
       </button>
     </form>
   </section>
