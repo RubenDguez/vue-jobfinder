@@ -9,7 +9,7 @@ const props = defineProps({
 
 const showFullDescription = ref(false)
 
-const handleTruncatedText = () => {
+const toggleTruncatedText = () => {
   showFullDescription.value = !showFullDescription.value
 }
 
@@ -33,8 +33,8 @@ const truncatedDescription = computed(() => {
 
     <p>
       {{ truncatedDescription }}
-      <span class="text-green-500">
-        <button @click="handleTruncatedText()" style="cursor: pointer">
+      <span v-if="truncatedDescription.length > 90" class="text-green-500">
+        <button @click="toggleTruncatedText()" style="cursor: pointer">
           {{ `${showFullDescription ? 'Less' : 'More'}` }}
         </button>
       </span>
