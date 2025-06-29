@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <nav
-    class="bg-green-600 py-6 px-6 flex gap-3 flex-col items-center md:flex-row md:justify-between shadow-md"
+    class="bg-green-600 py-6 px-6 flex gap-3 flex-col items-center md:flex-row md:justify-between"
   >
     <a href="#">
       <h1 class="text-white text-3xl">Vue Jobs</h1>
