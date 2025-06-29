@@ -1,10 +1,11 @@
 <script setup>
-import axios from 'axios'
+import useFirebase from '@/hooks/useFirebase'
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
+const { getJob, updateJob, createJob } = useFirebase()
 
 const props = defineProps({
   isUpdate: {
@@ -41,8 +42,8 @@ const getData = () => {
 
 const handleCreate = async () => {
   try {
-    await axios.post('http://localhost:3001/jobs', getData())
-    router.push('/jobs');
+    await createJob(getData())
+    router.push('/jobs')
   } catch (error) {
     console.error('Error submitting job:', error)
   }
@@ -50,8 +51,8 @@ const handleCreate = async () => {
 
 const handleUpdate = async () => {
   try {
-    await axios.put(`http://localhost:3001/jobs/${route.params.id}`, getData())
-    router.push(`/job/${route.params.id}`);
+    await updateJob(route.params.id, getData())
+    router.push(`/job/${route.params.id}`)
   } catch (error) {
     console.error('Error submitting job:', error)
   }
@@ -65,16 +66,16 @@ const handleSubmit = async () => {
 onMounted(async () => {
   if (props.isUpdate) {
     try {
-      const response = await axios.get(`http://localhost:3001/jobs/${route.params.id}`)
-      type.value = response.data.type
-      title.value = response.data.title
-      description.value = response.data.description
-      salary.value = response.data.salary
-      location.value = response.data.location
-      companyName.value = response.data.company.name
-      companyLogo.value = response.data.company.logo
-      companyWebsite.value = response.data.company.website
-      companyDescription.value = response.data.company.description
+      const response = await getJob(route.params.id)
+      type.value = response.type
+      title.value = response.title
+      description.value = response.description
+      salary.value = response.salary
+      location.value = response.location
+      companyName.value = response.company.name
+      companyLogo.value = response.company.logo
+      companyWebsite.value = response.company.website
+      companyDescription.value = response.company.description
     } catch (error) {
       console.error('Error fetching job data:', error)
     }

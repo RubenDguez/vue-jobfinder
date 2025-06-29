@@ -4,6 +4,7 @@ import axios from 'axios'
 import { onMounted, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import useFirebase from '@/hooks/useFirebase'
 
 const props = defineProps({
   showAllJobs: {
@@ -20,8 +21,8 @@ const state = reactive({
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:3001/jobs')
-    state.jobs = response.data
+    const jobs = await useFirebase().getJobs();
+    state.jobs = jobs;
   } catch (error) {
     console.error('Error fetching jobs:', error)
   } finally {
